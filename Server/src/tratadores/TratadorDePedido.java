@@ -42,4 +42,14 @@ public class TratadorDePedido {
         }
         return mensagem;
     }
+
+    public String trataSeletcReturn(List<Picole> picoles){
+        String mensagem = "";
+        for (Picole picole : picoles){
+            mensagem = mensagem + picole.stringLogica();
+        }
+        return mensagem;
+    }
+
+
 }
