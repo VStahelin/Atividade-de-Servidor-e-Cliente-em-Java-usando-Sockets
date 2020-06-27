@@ -3,6 +3,7 @@ package tratadores;
 import modelos.Picole;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TratadorDePedido {
@@ -34,4 +35,11 @@ public class TratadorDePedido {
         return dicionarioComplemento;
     }
 
+    public String trataSoftSeletcReturn(List<Picole> picoles){
+        String mensagem = "";
+        for (Picole picole : picoles){
+            mensagem = mensagem + picole.softStringLogica();
+        }
+        return mensagem;
+    }
 }

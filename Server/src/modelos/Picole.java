@@ -28,8 +28,12 @@ public class Picole {
         return ("Id: " + getId() + " \\ Sabor: " + getSabor() + "\\ Marca: " + getMarca() + "\\ Preco: " + getPreco() + "\\ Validade: " + getValidade() + "\\ Peso: " + getPeso() + "\\ Deletado?: " + isDeleted());
     }
 
-    public String logicalString() {
-        return (getId() + " -  " + getSabor() + " - " + getMarca() + " - " + getPreco() + " - " + getValidade() + " - " + getPeso());
+    public String softStringLogica() {
+        return ("id:" + getId() + ":sabor:" + getSabor() + ":marca:" + getMarca() + ":preco:" + getPreco() + ":validade:" + getValidade() + ":peso:" + getPeso());
+    }
+
+    public String stringLogica() {
+        return ("id:" + getId() + ":sabor:" + getSabor() + ":marca:" + getMarca() + ":preco:" + getPreco() + ":validade:" + getValidade() + ":peso:" + getPeso() + ":deletada:" + isDeleted());
     }
 
     public void setId(int id) {

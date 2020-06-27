@@ -42,7 +42,7 @@ public class Main {
                     socket.close();
                     server.close();
                 } else {
-                    enviado.writeObject("Erro de controller");
+                    enviado.writeObject(flag);
                 }
             }catch (Exception e){
                 enviado.writeObject("Erro de execucao: " + e.toString());
