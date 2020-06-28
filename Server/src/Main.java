@@ -1,4 +1,5 @@
 import controlador.ControladorDeDadosRecebidos;
+import dao.PicoleDao;
 import modelos.Picole;
 import tratadores.TratadorDePedido;
 
@@ -17,7 +18,7 @@ public class Main {
     private static int port = 9876; //Definindo uma porta para o servidor
 
     public static void main(String args[]) throws IOException, ClassNotFoundException{
-
+        new PicoleDao().createTable();
         server = new ServerSocket(port);  // Criando soquete
 
         //DEIXANDO O SERVIDOR EM LOOP PARA FICAR ONLINE
