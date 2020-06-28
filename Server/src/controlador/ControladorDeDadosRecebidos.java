@@ -5,7 +5,6 @@ import modelos.Pedido;
 import modelos.Picole;
 import tratadores.TratadorDePedido;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,7 +48,7 @@ public class ControladorDeDadosRecebidos {
             case "insert":
                 //Modelo de formatacao da mensagem insert: insert##id:sabor:preco:marca:validade:peso:isDeleted##empyt
                 try {
-                    if (picoleDao.inset(tratadorDePedido.tratarMensagem(pedido.getPedido()))){
+                    if (picoleDao.inset(tratadorDePedido.softTratarMensagem(pedido.getPedido()))){
                         flag = "true";
                     } else {
                         flag = "false";
@@ -60,10 +59,10 @@ public class ControladorDeDadosRecebidos {
                 }
                 break;
 
-            case "updade":
+            case "update":
                 //Modelo de formatacao da mensagem imput: update##id:sabor:preco:marca:validade:peso:isDeleted##id:xx
                 try {
-                    if (picoleDao.updade(tratadorDePedido.tratarMensagem(pedido.getPedido()),Integer.parseInt(dicionarioComplemento.get("id")))){
+                    if (picoleDao.updade(tratadorDePedido.softTratarMensagem(pedido.getPedido()),Integer.parseInt(dicionarioComplemento.get("id")))){
                         flag = "true";
                     } else {
                         flag = "false";

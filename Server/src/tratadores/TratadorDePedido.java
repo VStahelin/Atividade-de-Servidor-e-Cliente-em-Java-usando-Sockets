@@ -8,6 +8,21 @@ import java.util.Map;
 
 public class TratadorDePedido {
 
+    public Picole softTratarMensagem(String mensagem){
+        Picole picole = new Picole();
+
+        // Modelo de mensgagem: id:sabor:preco:marca:validade:peso
+        String splitMensagem[] = mensagem.split(":");
+        picole.setId(Integer.valueOf(splitMensagem[0]));
+        picole.setSabor(splitMensagem[1]);
+        picole.setPreco(splitMensagem[2]);
+        picole.setMarca(splitMensagem[3]);
+        picole.setValidade(splitMensagem[4]);
+        picole.setPeso(splitMensagem[5]);
+
+        return picole;
+    }
+
     public Picole tratarMensagem(String mensagem){
         Picole picole = new Picole();
 
