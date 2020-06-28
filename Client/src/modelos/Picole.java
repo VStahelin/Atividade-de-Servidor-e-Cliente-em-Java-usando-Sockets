@@ -33,8 +33,9 @@ public class Picole {
         return (getId() + ":" + getSabor() + ":" + getPreco() + ":" + getMarca()  + ":" + getValidade() + ":" + getPeso());
     }
 
-    public String stringLogica() {
-        return ("id:" + getId() + ":sabor:" + getSabor() + ":marca:" + getMarca() + ":preco:" + getPreco() + ":validade:" + getValidade() + ":peso:" + getPeso() + ":deletada:" + isDeleted());
+    public String stringFisica() {
+        //id:sabor:preco:marca:validade:peso:isDeleted
+        return (getId() + ":" + getSabor() + ":" + getPreco() + ":" + getMarca()  + ":" + getValidade() + ":" + getPeso()) + ":" + isDeleted();
     }
 
     public void setId(int id) {
