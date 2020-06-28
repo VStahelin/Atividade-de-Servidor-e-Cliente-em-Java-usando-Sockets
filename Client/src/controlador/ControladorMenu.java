@@ -2,9 +2,15 @@ package controlador;
 
 import conector.ConectorServer;
 import modelos.Picole;
+import tratadores.TratadorDeRetorno;
+
+import javax.swing.*;
+import java.util.List;
 
 public class ControladorMenu {
     ConectorServer conectorServer = new ConectorServer();
+    TratadorDeRetorno tratadorDeRetorno = new TratadorDeRetorno();
+    //TODO: ATUALIZAR EVENTOS DE ERRO
 
     public boolean inserir(String acao, Picole picole){
 
@@ -21,14 +27,48 @@ public class ControladorMenu {
         String request = acao + "##" + picole.softStringLogica() + complemento;
         System.out.println(request);
         try {
-            if (conectorServer.enviarRequest(request)){
-                System.out.println("Deu certo");
+            String retorno = conectorServer.enviarRequest(request);
+            if (retorno.equals("true")){
+                JOptionPane.showMessageDialog(null,"Cadastrado");
             } else {
-                System.out.println("Deu erro");
+                JOptionPane.showMessageDialog(null,"Deu earro");
             }
         } catch (Exception e){
             e.printStackTrace();
         }
         return false;
+    }
+
+    public List<Picole> softSelect(){
+        //Modelo de formatacao da mensagem softSelect: softSelect##empyt##empty:empty
+        String request = "softSelect##empyt##empty:empty";
+        try {
+            return tratadorDeRetorno.getSoftListaDePicoles(conectorServer.enviarRequest(request));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Picole> select(){
+        //Modelo de formatacao da mensagem softSelect: softSelect##empyt##empty:empty
+        String request = "select##empyt##empty:empty";
+        try {
+            return tratadorDeRetorno.getSoftListaDePicoles(conectorServer.enviarRequest(request));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Picole selectById(int id){
+        //Modelo de formatacao da mensagem select: selectById##empyt##id:xx
+        String request = "selectById##empyt##id:"+ id;
+        try {
+            return tratadorDeRetorno.tratarsSoftMensagem(conectorServer.enviarRequest(request));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

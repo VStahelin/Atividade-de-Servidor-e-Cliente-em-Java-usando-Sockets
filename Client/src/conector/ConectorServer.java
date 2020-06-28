@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class ConectorServer {
 
-    public boolean enviarRequest(String request) throws IOException, ClassNotFoundException{
+    public String enviarRequest(String request) throws IOException, ClassNotFoundException{
         try {
             //get the localhost IP address, if server is running on some other IP, you need to use that
             InetAddress host = InetAddress.getLocalHost();
@@ -27,17 +27,15 @@ public class ConectorServer {
 
             //read the server response message
             recebido = new ObjectInputStream(socket.getInputStream());
-            String message = (String) recebido.readObject();
-            System.out.println("Message: " + message);
+            String retorno = (String) recebido.readObject();
 
             //close resources
             recebido.close();
             envio.close();
-
-            return true;
+            return retorno;
         } catch (Exception e){
             e.printStackTrace();
-            return false;
         }
+        return "false";
     }
 }
