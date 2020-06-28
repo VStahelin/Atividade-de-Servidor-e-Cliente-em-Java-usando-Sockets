@@ -30,7 +30,7 @@ public class Picole {
 
     public String softStringLogica() {
         //id:sabor:preco:marca:validade:peso
-        return ("id:" + getId() + ":sabor:" + getSabor() + ":preco:" + getPreco() + ":marca:" + getMarca()  + ":validade:" + getValidade() + ":peso:" + getPeso());
+        return (getId() + ":" + getSabor() + ":" + getPreco() + ":" + getMarca()  + ":" + getValidade() + ":" + getPeso());
     }
 
     public String stringLogica() {
