@@ -53,7 +53,7 @@ public class TratadorDePedido {
     public String trataSoftSeletcReturn(List<Picole> picoles){
         String mensagem = "";
         for (Picole picole : picoles){
-            mensagem = mensagem + picole.softStringLogica();
+            mensagem = mensagem + picole.softStringLogica() + "%%";
         }
         return mensagem;
     }
@@ -61,7 +61,7 @@ public class TratadorDePedido {
     public String trataSeletcReturn(List<Picole> picoles){
         String mensagem = "";
         for (Picole picole : picoles){
-            mensagem = mensagem + picole.stringLogica();
+            mensagem = mensagem + picole.stringLogica() + "%%";
         }
         return mensagem;
     }
