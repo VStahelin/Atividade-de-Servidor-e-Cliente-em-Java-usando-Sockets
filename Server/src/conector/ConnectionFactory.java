@@ -1,17 +1,23 @@
 package conector;
 
+import java.io.*;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class ConnectionFactory {
     private static final String DRIVE = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/dbpicole";
-    private static final String USER = "root";
-    private static final String PASS = "admin";
+    private static String url;
+    private static String user;
+    private static String password;
+
 
     public static Connection getConnction(){
+        readConfigs();
         try {
             Class.forName(DRIVE);
-            return DriverManager.getConnection(URL, USER, PASS);
+            return DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException("Error db connection", e);
         }
@@ -45,5 +51,25 @@ public class ConnectionFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void readConfigs(){
+        Map<String,String> configs = new HashMap<String,String>();
+        try {
+            FileReader reader = new FileReader("dbConfig.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] config = line.split(":");
+                configs.put(config[0], config[1]);
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        url = "jdbc:mysql://localhost:"+ configs.get("port") +"/" +configs.get("database");
+        user = configs.get("user");
+        password = configs.get("password");
     }
 }
