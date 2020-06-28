@@ -3,8 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="4b2fe13d-7b96-4a82-8a9c-34ffd9c09bfd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/View/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/View/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/controlador/ControladorMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/controlador/ControladorMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/modelos/Picole.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/modelos/Picole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/tratadores/TratadorDeRetorno.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/tratadores/TratadorDeRetorno.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/conector/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/conector/ConnectionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/controlador/ControladorDeDadosRecebidos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/controlador/ControladorDeDadosRecebidos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/dao/PicoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/dao/PicoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/modelos/Picole.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/modelos/Picole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/tratadores/TratadorDePedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/tratadores/TratadorDePedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/Picole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Server/TratadorDeRecebido.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +34,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dusB1J9au4LfhgAFAmonsGk3fv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -31,7 +45,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Server/src/jar/mysql-connector-java-5.1.48.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -39,14 +56,22 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Stahelin\OneDrive - UNISUL\UNISUL\Topicos avancados\Picole\src" />
       <recent name="C:\Users\Stahelin\OneDrive - UNISUL\UNISUL\Topicos avancados\Picole\Server\src" />
+      <recent name="C:\Users\Stahelin\OneDrive - UNISUL\UNISUL\Topicos avancados\Picole\Client\src\View" />
+      <recent name="C:\Users\Stahelin\OneDrive - UNISUL\UNISUL\Topicos avancados\Picole\Client\src" />
+      <recent name="C:\Users\Stahelin\OneDrive - UNISUL\UNISUL\Topicos avancados\Picole\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
-    <configuration name="Client" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Cliente" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="View.Menu" />
       <module name="Client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="View.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -60,8 +85,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Cliente" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Cliente" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -85,65 +115,103 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="677" y="178" key="#Server/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593286457226" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593286366115">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593309103917">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593286366115" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593309103917" />
+    <state x="736" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593320958851">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="323" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593320958851" />
     <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1593292952743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593292952743" />
-    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1593286364845">
+    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1593309099582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593286364845" />
-    <state x="782" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593289466498">
+    <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593309099582" />
+    <state x="782" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1593312100339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="782" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593289466498" />
+    <state x="782" y="445" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593312100339" />
     <state x="543" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593290943973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="543" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593290943973" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593289530119">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593322110040">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593289530119" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1593289511554">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593322110040" />
+    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1593307419079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593289511554" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1593289511554">
+    <state x="666" y="261" key="FileChooserDialogImpl/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593307419079" />
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1593323939072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593289511554" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1593289511554">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593323939072" />
+    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1593323939072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593289511554" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1593289511554">
+    <state width="1877" height="168" key="GridCell.Tab.0.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593323939072" />
+    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1593323939071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593289511554" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1593287806439">
+    <state width="1877" height="168" key="GridCell.Tab.0.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593323939071" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1593323939072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593287806439" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1593287806439">
+    <state width="1877" height="168" key="GridCell.Tab.0.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593323939072" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1593322150525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593287806439" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1593287806438">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593322150525" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1593322150525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593287806438" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1593287806439">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593322150525" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1593322150525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593287806439" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593322150525" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1593322150525">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593322150525" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1593307431032">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593307431032" />
     <state x="407" y="116" key="new project wizard" timestamp="1593286236561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="407" y="116" key="new project wizard/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1593286236561" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/dao/PicoleDao.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/controlador/ControladorDeDadosRecebidos.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/dao/PicoleDao.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/tratadores/TratadorDeRetorno.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
