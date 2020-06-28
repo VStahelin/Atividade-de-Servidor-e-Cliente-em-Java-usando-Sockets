@@ -23,6 +23,14 @@ public class TratadorDePedido {
         return picole;
     }
 
+    public String trataSeletcReturn(List<Picole> picoles){
+        String mensagem = "";
+        for (Picole picole : picoles){
+            mensagem = mensagem + picole.stringFisica() + "%%";
+        }
+        return mensagem;
+    }
+
     public Picole tratarMensagem(String mensagem){
         Picole picole = new Picole();
 
@@ -57,14 +65,4 @@ public class TratadorDePedido {
         }
         return mensagem;
     }
-
-    public String trataSeletcReturn(List<Picole> picoles){
-        String mensagem = "";
-        for (Picole picole : picoles){
-            mensagem = mensagem + picole.stringLogica() + "%%";
-        }
-        return mensagem;
-    }
-
-
 }
