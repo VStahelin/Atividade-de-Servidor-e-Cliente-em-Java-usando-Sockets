@@ -99,7 +99,11 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem select: selectById##empyt##id:xx
                 try {
                     Picole picole = picoleDao.selectById(Integer.parseInt(dicionarioComplemento.get("id")));
-                    retorno = picole.softStringLogica();
+                    if (picole == null){
+                        retorno = "false";
+                    } else {
+                        retorno = picole.softStringLogica();
+                    }
                 } catch (Exception e){
                     e.printStackTrace();
                     retorno = "false";

@@ -2,6 +2,7 @@ package tratadores;
 
 import modelos.Picole;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,10 @@ public class TratadorDeRetorno {
 
     public List<Picole> getSoftListaDePicoles(String retorno){
         List<Picole> picoles = new ArrayList<Picole>();
-
+        if (retorno.equals("")){
+            JOptionPane.showMessageDialog(null, "Nao ha registros!");
+            return null;
+        }
         String[] stringPicoles = retorno.split("%%");
         for (String linha : stringPicoles){
             picoles.add(tratarsSoftMensagem(linha));
@@ -32,7 +36,7 @@ public class TratadorDeRetorno {
         return picole;
     }
 
-    public Picole tratarsMensagem(String mensagem){
+    public Picole tratarMensagem(String mensagem){
         Picole picole = new Picole();
 
         // Modelo de mensgagem: id:sabor:preco:marca:validade:peso
@@ -50,10 +54,13 @@ public class TratadorDeRetorno {
 
     public List<Picole> getListaDePicoles(String retorno){
         List<Picole> picoles = new ArrayList<Picole>();
-
+        if (retorno.equals("")){
+            JOptionPane.showMessageDialog(null, "Nao ha registros!");
+            return null;
+        }
         String[] stringPicoles = retorno.split("%%");
         for (String linha : stringPicoles){
-            picoles.add(tratarsMensagem(linha));
+            picoles.add(tratarMensagem(linha));
         }
         return picoles;
     }

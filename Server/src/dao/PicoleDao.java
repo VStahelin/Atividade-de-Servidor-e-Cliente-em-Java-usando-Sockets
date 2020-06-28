@@ -41,11 +41,12 @@ public class PicoleDao{
         try {
             stmt = connection.prepareStatement("delete from picole");
             stmt.execute();
-            return true;
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+        return true;
     }
 
     public boolean inset(Picole picole){
@@ -130,6 +131,10 @@ public class PicoleDao{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        if (picole.getSabor().equals("") || picole.getPreco().equals("") || picole.getMarca().equals("") || picole.getValidade().equals("") || picole.getPeso().equals("")){
+            return null;
+        }
+
         return picole;
     }
 
