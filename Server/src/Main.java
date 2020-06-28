@@ -33,9 +33,10 @@ public class Main {
             try {
                 String flag = new ControladorDeDadosRecebidos().trataPedido((String) recebido.readObject()); //Trata o pedido e retorna uma flag: true, false, exit
                 if(flag.equals("true")){
-                    paraEnviar.writeObject("Pedido realizado com sucesso!!");
+                    paraEnviar.writeObject("true");
                 } else if(flag.equals("false")) {
-                    paraEnviar.writeObject("Nao foi possivel realizar o pedido >-<");
+                    System.out.println("Erro durante o processo");
+                    paraEnviar.writeObject("false");
                 }else if (flag.equals("exit")){
                     recebido.close();
                     paraEnviar.close();
