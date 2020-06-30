@@ -5,29 +5,33 @@ import modelos.Pedido;
 import modelos.Picole;
 import tratadores.TratadorDePedido;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ControladorDeDadosRecebidos {
     PicoleDao picoleDao = new PicoleDao();
     TratadorDePedido tratadorDePedido = new TratadorDePedido();
-    public String trataPedido(String mensagem){
-        String retorno = "false";
+    public Map<String,String> trataPedido(String mensagem){
         Pedido pedido = new Pedido(mensagem);
         Map<String,String> dicionarioComplemento = tratadorDePedido.tradarComplemento(pedido.getComplemento());
-
+        Map<String,String> retorno = new HashMap<String,String>();
+        retorno.put("retorno","falso");
+        retorno.put("acao", pedido.getAcao());
         switch (pedido.getAcao()){
             case "createTable":
                 //Modelo de formatacao da mensagem createTable: crateTeable##empyt##empty:empty
                 try {
                     if (picoleDao.createTable()){
-                        retorno = "true";
+                        retorno.replace("retorno", "true");
                     } else {
-                        retorno = "false";
+                        retorno.replace("retorno", "false");
+                        retorno.put("data", "Nao foi possivel executar a acao");
                     }
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -35,13 +39,15 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem deleteTable: deleteTable##empyt##empty:empty
                 try {
                     if (picoleDao.deleteTable()){
-                        retorno = "true";
+                        retorno.replace("retorno", "true");
                     } else {
-                        retorno = "false";
+                        retorno.replace("retorno", "false");
+                        retorno.put("data", "Nao foi possivel executar a acao");
                     }
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -49,13 +55,15 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem insert: insert##id:sabor:preco:marca:validade:peso:isDeleted##empty:empty
                 try {
                     if (picoleDao.inset(tratadorDePedido.softTratarMensagem(pedido.getPedido()))){
-                        retorno = "true";
+                        retorno.replace("retorno", "true");
                     } else {
-                        retorno = "false";
+                        retorno.replace("retorno", "false");
+                        retorno.put("data", "Nao foi possivel executar a acao");
                     }
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -63,13 +71,15 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem imput: update##id:sabor:preco:marca:validade:peso:isDeleted##id:xx
                 try {
                     if (picoleDao.updade(tratadorDePedido.softTratarMensagem(pedido.getPedido()),Integer.parseInt(dicionarioComplemento.get("id")))){
-                        retorno = "true";
+                        retorno.replace("retorno", "true");
                     } else {
-                        retorno = "false";
+                        retorno.replace("retorno", "false");
+                        retorno.put("data", "Nao foi possivel executar a acao");
                     }
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -77,10 +87,12 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem softSelect: softSelect##empyt##empty:empty
                 try {
                     List<Picole> picoles = picoleDao.softSelect();
-                    retorno = tratadorDePedido.trataSoftSeletcReturn(picoles);
+                    retorno.put("retorno", "true");
+                    retorno.put("data",tratadorDePedido.trataSoftSeletcReturn(picoles));
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -88,10 +100,12 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem select: select##empyt##empty:empty
                 try {
                     List<Picole> picoles = picoleDao.select();
-                    retorno = tratadorDePedido.trataSeletcReturn(picoles);
+                    retorno.put("retorno", "true");
+                    retorno.put("data",tratadorDePedido.trataSeletcReturn(picoles));
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -100,13 +114,16 @@ public class ControladorDeDadosRecebidos {
                 try {
                     Picole picole = picoleDao.selectById(Integer.parseInt(dicionarioComplemento.get("id")));
                     if (picole == null){
-                        retorno = "false";
+                        retorno.replace("retorno", "false");
+                        retorno.put("data", "Nao foi possivel executar a acao");
                     } else {
-                        retorno = picole.softStringLogica();
+                        retorno.replace("retorno", "true");
+                        retorno.put("data",picole.softStringLogica());
                     }
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
@@ -114,23 +131,27 @@ public class ControladorDeDadosRecebidos {
                 //Modelo de formatacao da mensagem select: delete##empyt##id:xx
                 try {
                     if (picoleDao.softDelete(Integer.parseInt(dicionarioComplemento.get("id")))){
-                        retorno = "true";
+                        retorno.replace("retorno", "true");
                     } else {
-                        retorno = "false";
+                        retorno.replace("retorno", "false");
+                        retorno.put("data", "Nao foi possivel executar a acao");
                     }
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
 
             case "rows":
                 //Modelo de formatacao da mensagem select: rows##empyt##empty:empty
                 try {
-                    retorno = String.valueOf(picoleDao.rows());
+                    retorno.replace("retorno", "true");
+                    retorno.put("data",String.valueOf(picoleDao.rows()));
                 } catch (Exception e){
                     e.printStackTrace();
-                    retorno = "false";
+                    retorno.replace("retorno", "false");
+                    retorno.put("data",e.toString());
                 }
                 break;
         }

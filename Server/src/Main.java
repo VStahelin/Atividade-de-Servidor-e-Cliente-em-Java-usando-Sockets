@@ -1,6 +1,6 @@
 import controlador.ControladorDeDadosRecebidos;
 import dao.PicoleDao;
-import modelos.Picole;
+import telas.Server;
 import tratadores.TratadorDePedido;
 
 import java.io.IOException;
@@ -9,6 +9,9 @@ import java.io.ObjectOutputStream;
 import java.lang.ClassNotFoundException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
 
 public class Main {
 
@@ -18,8 +21,17 @@ public class Main {
     private static int port = 9876; //Definindo uma porta para o servidor
 
     public static void main(String args[]) throws IOException, ClassNotFoundException{
-        new PicoleDao().createTable();
         server = new ServerSocket(port);  // Criando soquete
+        Server tela = new Server();
+        tela.run();
+        String db = "";
+        try {
+            new PicoleDao().createTable();
+            db = "Conectado";
+        } catch (Exception e){
+            db = "Erro de conexao";
+        }
+        tela.addRow(pegaHora(),"Conect BD", db);
 
         //DEIXANDO O SERVIDOR EM LOOP PARA FICAR ONLINE
         while(true){
@@ -32,10 +44,17 @@ public class Main {
             ObjectOutputStream paraEnviar = new ObjectOutputStream(socket.getOutputStream()); //Instacia a mensagem que vai ser enviada
 
             try {
-                String flag = new ControladorDeDadosRecebidos().trataPedido((String) recebido.readObject()); //Trata o pedido e retorna uma flag: true, false, exit
+                Map<String,String> retorno = new ControladorDeDadosRecebidos().trataPedido((String) recebido.readObject()); //Trata o pedido e retorna uma flag: true, false, exit
+                String flag = retorno.get("retorno");
                 if(flag.equals("true")){
-                    paraEnviar.writeObject("true");
+                    tela.addRow(pegaHora(),retorno.get("acao"),"Sim");
+                    if (retorno.containsKey("data")){
+                        paraEnviar.writeObject(retorno.get("data"));
+                    } else {
+                        paraEnviar.writeObject("true");
+                    }
                 } else if(flag.equals("false")) {
+                    tela.addRow(pegaHora(),retorno.get("acao"),retorno.get("data"));
                     System.out.println("Erro durante o processo");
                     paraEnviar.writeObject("false");
                 }else if (flag.equals("exit")){
@@ -44,8 +63,6 @@ public class Main {
                     socket.close();
                     server.close();
                     break;
-                } else {
-                    paraEnviar.writeObject(flag);
                 }
             }catch (Exception e){
                 paraEnviar.writeObject("Erro de execucao: " + e.toString());
@@ -58,4 +75,9 @@ public class Main {
         }
     }
 
+    private static String pegaHora(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        return formatter.format(date);
+    }
 }
