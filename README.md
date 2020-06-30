@@ -14,6 +14,8 @@ Para rodar o Servidor: "C:\Program Files\Java\jdk-14\bin\java.exe" -jar Server.j
 ㅤ|-- Server.jar  
 ㅤ'-- dbConfig.txt  
 
+#### v1.0  
+- Ainda funcionando em localhost apenas  
 
 ### Capturas de tela  
 Tela de cadastro e atualizacao  
