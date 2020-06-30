@@ -17,3 +17,6 @@ Tela de busca de registro por id
 
 Demais operacoes  
 ![demais operacoes](prints/Demais-operacoes.png)
+
+Log do Servidor  
+![Log1](prints/Server1.png)  ![log2](prints/Server2.png)
