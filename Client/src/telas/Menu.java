@@ -1,4 +1,4 @@
-package View;
+package telas;
 
 import controlador.ControladorMenu;
 import modelos.Picole;
